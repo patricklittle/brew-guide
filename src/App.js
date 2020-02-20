@@ -81,12 +81,14 @@ class App extends React.Component {
     } else if (this.state.active && this.state.step < this.state.totalSteps) {
       let instructions = this.state.method.instructions[this.state.step]
       let coffee = this.state.totalCoffee
+      let groundSetting = this.state.method.groundSetting
       let totalWater = getTotalWater(coffee, this.state.method.ratio)
       return (
         <div className="App" style={style.App}>
           <BrewStep
             step={this.state.step}
             totalCoffee={coffee}
+            groundSetting={groundSetting}
             instructions={instructions}
             totalWater={totalWater}
             measurement="g"
