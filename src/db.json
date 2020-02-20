@@ -1,0 +1,68 @@
+{
+  "methods": {
+    "v60": {
+      "name": "v60",
+      "device": "v60",
+      "ratio": "1:18",
+      "pourTime": "00:01:50",
+      "totalTime": "00:02:20",
+      "coffee": "22",
+      "groundSetting": "course",
+      "instructions": [
+        {
+          "title": "Prep - Step 1",
+          "text": "Start by boiling at least {totalWater}{measurement} of water and measure out {totalCoffee}{measurement} of coffee.",
+          "showTimer": false,
+          "nextButtonText": "Ready"
+        },
+        {
+          "title": "Prep - Step 2",
+          "text": "Ground {totalCoffee}{measurement} of coffee to {groundSetting} and add to your v60 and prepare to brew!",
+          "showTimer": false,
+          "nextButtonText": "Lets Brew!"
+        },
+        {
+          "title": "The Bloom",
+          "text": "Pour 30g of water over the coffee and allow the coffee to bloom for 30 seconds.",
+          "showTimer": true,
+          "time": "3",
+          "autoProgress": true
+        },
+        {
+          "title": "Pour",
+          "text": "Starting in the very middle pour 100g of water over the coffee in a circular pattern.",
+          "showTimer": true,
+          "time": "40",
+          "autoProgress": true
+        },
+        {
+          "title": "Pour",
+          "text": "Pour 150g of water slowly in the very middle.",
+          "showTimer": true,
+          "time": "50",
+          "autoProgress": true
+        },
+        {
+          "title": "Wait",
+          "text": "Let the coffee drip.",
+          "showTimer": true,
+          "time": "10",
+          "autoProgress": true
+        },
+        {
+          "title": "Pour",
+          "text": "Pour 150g of water slowly in the very middle.",
+          "showTimer": true,
+          "time": "30",
+          "autoProgress": true
+        },
+        {
+          "title": "Wait",
+          "text": "Your done! Let the coffee finish dripping.",
+          "showTimer": false,
+          "nextButtonText": "Done"
+        }
+      ]
+    }
+  }
+}

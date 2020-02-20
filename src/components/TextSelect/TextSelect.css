@@ -1,0 +1,29 @@
+.TextSelect {
+  display: inline-flex;
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important;
+  background: transparent;
+  background-image: none;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex: 1;
+  cursor: pointer;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* Remove IE arrow */
+select::-ms-expand {
+  display: none;
+}
+
+.hidden { display:none; }
