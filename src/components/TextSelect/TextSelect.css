@@ -1,11 +1,15 @@
 .TextSelect {
   display: inline-flex;
+  padding: 4px 6px;
+  border-radius: 6px;
+  background: #E4C391;
 }
 
 select {
   -webkit-appearance: none;
   -moz-appearance: none;
   -ms-appearance: none;
+  text-align-last:center;
   appearance: none;
   outline: 0;
   box-shadow: none;

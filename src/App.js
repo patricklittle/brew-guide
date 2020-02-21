@@ -16,6 +16,8 @@ let style = {
   }
 }
 
+let methods = data.methods.map(method => method.name)
+
 function getTotalWater(coffee, ratio) {
   let multiplier = ratio.split(':')[1]
 
@@ -25,27 +27,19 @@ function getTotalWater(coffee, ratio) {
 class App extends React.Component {
   constructor(props) {
     super(props)
-    this.onHandleNext = this.onHandleNext.bind(this)
-    this.onHandleMethodChange = this.onHandleMethodChange.bind(this)
-    this.onHandleAmountChange = this.onHandleAmountChange.bind(this)
+    this.handleNext = this.handleNext.bind(this)
+    this.handleMethodChange = this.handleMethodChange.bind(this)
+    this.handleAmountChange = this.handleAmountChange.bind(this)
     this.state = {
       method: null,
-      active: false,
-      step: 0,
-      totalSteps: null,
-      totalCoffee: 18
+      active: false
     }
   }
 
-  onHandleNext(e) {
+  handleNext(e) {
     if (!this.state.active) {
-      let method = data.methods['v60']
-      let totalSteps = method.instructions.length
-
       this.setState({
-        active: true,
-        method: method,
-        totalSteps: totalSteps
+        active: true
       })
     } else {
       this.setState({
@@ -54,16 +48,62 @@ class App extends React.Component {
     }
   }
 
-  onHandleMethodChange(method) {
+  handleMethodChange(method) {
+    let {
+      name,
+      totalCoffee,
+      instructions,
+      measurement,
+      ratio,
+      groundSetting
+    } = data.methods.filter(m => m.name === method)[0]
+    let instructionsCount = instructions.length
+
     this.setState({
-      method: method
+      method: name,
+      totalCoffee: totalCoffee,
+      active: false,
+      step: 0,
+      totalSteps: instructionsCount,
+      measurement: measurement,
+      instructions: instructions,
+      ratio: ratio,
+      groundSetting: groundSetting
     })
   }
 
-  onHandleAmountChange(amount) {
+  handleAmountChange(amount) {
     this.setState({
       totalCoffee: amount
     })
+  }
+
+  handleRestart() {
+    let {
+      name,
+      totalCoffee,
+      instructions,
+      measurement,
+      ratio,
+      groundSetting
+    } = data.methods[0]
+    let instructionsCount = instructions.length
+
+    this.setState({
+      method: name,
+      totalCoffee: totalCoffee,
+      active: false,
+      step: 0,
+      totalSteps: instructionsCount,
+      instructions: instructions,
+      measurement: measurement,
+      ratio: ratio,
+      groundSetting: groundSetting
+    })
+  }
+
+  componentDidMount() {
+    this.handleRestart()
   }
 
   render() {
@@ -71,35 +111,42 @@ class App extends React.Component {
       return (
         <div className="App" style={style.App}>
           <Intro
+            methods={methods}
+            measurement={this.state.measurement}
             totalCoffee={this.state.totalCoffee}
-            onHandleMethodChange={this.onHandleMethodChange}
-            onHandleAmountChange={this.onHandleAmountChange}
-            onNextButton={this.onHandleNext}
+            handleMethodChange={this.handleMethodChange}
+            handleAmountChange={this.handleAmountChange}
+            onNextButton={this.handleNext}
           />
         </div>
       )
     } else if (this.state.active && this.state.step < this.state.totalSteps) {
-      let instructions = this.state.method.instructions[this.state.step]
-      let coffee = this.state.totalCoffee
-      let groundSetting = this.state.method.groundSetting
-      let totalWater = getTotalWater(coffee, this.state.method.ratio)
+      let totalWater = getTotalWater(this.state.totalCoffee, this.state.ratio)
+
       return (
         <div className="App" style={style.App}>
           <BrewStep
             step={this.state.step}
-            totalCoffee={coffee}
-            groundSetting={groundSetting}
-            instructions={instructions}
+            totalCoffee={this.state.totalCoffee}
+            groundSetting={this.state.groundSetting}
+            instructions={this.state.instructions}
             totalWater={totalWater}
-            measurement="g"
-            onNextButton={this.onHandleNext}
+            measurement={this.state.measurement}
+            onNextButton={this.handleNext}
           />
         </div>
       )
     } else {
       return (
         <div className="App" style={style.App}>
-          <Page>the end</Page>
+          <Page>
+            <h2>Enjoy!</h2>
+            <p>Hope your coffee is great!</p>
+            <p>
+              <a href="https://www.buymeacoffee.com/3vJ68F0">Buy me a coffee</a>
+            </p>
+            <button onClick={this.props.handleRestart}>Reset</button>
+          </Page>
         </div>
       )
     }

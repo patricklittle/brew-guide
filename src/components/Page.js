@@ -10,7 +10,7 @@ let style = {
 }
 
 function Page(props) {
-  return <div style={style.Page}>{props.children}</div>
+  return <div key={props} style={style.Page}>{props.children}</div>
 }
 
 export default Page

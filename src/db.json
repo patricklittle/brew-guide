@@ -1,68 +1,303 @@
 {
-  "methods": {
-    "v60": {
+  "methods": [
+    {
       "name": "v60",
-      "device": "v60",
-      "ratio": "1:18",
-      "pourTime": "00:01:50",
-      "totalTime": "00:02:20",
-      "coffee": "22",
+      "ratio": "1:15",
+      "totalCoffee": 25,
+      "totalWater": 375,
+      "measurement": "grams",
       "groundSetting": "course",
       "instructions": [
         {
           "title": "Prep - Step 1",
-          "text": "Start by boiling at least {totalWater}{measurement} of water and measure out {totalCoffee}{measurement} of coffee.",
+          "text": "Start by boiling at least {totalWater} {measurement} of water and measure out {totalCoffee} {measurement} of coffee.",
+          "showTimer": false,
+          "nextButtonText": "Next"
+        },
+        {
+          "title": "Prep - Step 2",
+          "text": "Ground {totalCoffee} {measurement} of coffee to {groundSetting} and add to your v60 and prepare to brew!",
+          "showTimer": false,
+          "nextButtonText": "Ready to Brew"
+        },
+        {
+          "title": "The Bloom",
+          "text": "Pour about 40 grams of water over the surface of the grounds, just enough to wet them all.",
+          "showTimer": true,
+          "time": 40,
+          "autoProgress": true
+        },
+        {
+          "title": "Pour",
+          "text": "Pour in gentle circles in the middle 2/3 of the coffee until the scale reads 130g.",
+          "showTimer": true,
+          "time": 25,
+          "autoProgress": true
+        },
+        {
+          "title": "Pour",
+          "text": "Pour again in the middle 2/3 until scale reads 220g.",
+          "showTimer": true,
+          "time": 25,
+          "autoProgress": true
+        },
+        {
+          "title": "Pour",
+          "text": "Pour in the center until scale reads 310g.",
+          "showTimer": true,
+          "time": 25,
+          "autoProgress": true
+        },
+        {
+          "title": "Pour",
+          "text": "Pour in the center until scale reads 375g.",
+          "showTimer": true,
+          "time": 25,
+          "autoProgress": true
+        },
+        {
+          "title": "Pour",
+          "text": "Gently tug the edges of the filter to free any grounds away from the sides.",
+          "showTimer": true,
+          "time": 25,
+          "autoProgress": true
+        },
+        {
+          "title": "Your Done!",
+          "text": "Let the coffee finish dripping and Enjoy!",
+          "showTimer": false,
+          "nextButtonText": "Done"
+        }
+      ]
+    },
+    {
+      "name": "Kalita Wave",
+      "ratio": "1:15",
+      "totalCoffee": 25,
+      "totalWater": 375,
+      "measurement": "grams",
+      "groundSetting": "course",
+      "instructions": [
+        {
+          "title": "Prep - Step 1",
+          "text": "Start by boiling at least {totalWater} {measurement} of water and measure out {totalCoffee} {measurement} of coffee.",
           "showTimer": false,
           "nextButtonText": "Ready"
         },
         {
           "title": "Prep - Step 2",
-          "text": "Ground {totalCoffee}{measurement} of coffee to {groundSetting} and add to your v60 and prepare to brew!",
+          "text": "Ground {totalCoffee} {measurement} of coffee to {groundSetting} and add to your v60 and prepare to brew!",
           "showTimer": false,
           "nextButtonText": "Lets Brew!"
         },
         {
           "title": "The Bloom",
-          "text": "Pour 30g of water over the coffee and allow the coffee to bloom for 30 seconds.",
+          "text": "Pour about 40 grams of water over the surface of the grounds, just enough to wet them all.",
           "showTimer": true,
-          "time": "3",
+          "time": 40,
           "autoProgress": true
         },
         {
           "title": "Pour",
-          "text": "Starting in the very middle pour 100g of water over the coffee in a circular pattern.",
+          "text": "Pour in gentle circles in the middle 2/3 of the coffee until the scale reads 150g.",
           "showTimer": true,
-          "time": "40",
+          "time": 25,
           "autoProgress": true
         },
         {
           "title": "Pour",
-          "text": "Pour 150g of water slowly in the very middle.",
+          "text": "Pour again in the middle 2/3 until scale reads 240g.",
           "showTimer": true,
-          "time": "50",
-          "autoProgress": true
-        },
-        {
-          "title": "Wait",
-          "text": "Let the coffee drip.",
-          "showTimer": true,
-          "time": "10",
+          "time": 25,
           "autoProgress": true
         },
         {
           "title": "Pour",
-          "text": "Pour 150g of water slowly in the very middle.",
+          "text": "Pour in the center until scale reads 320g.",
           "showTimer": true,
-          "time": "30",
+          "time": 25,
           "autoProgress": true
         },
         {
-          "title": "Wait",
-          "text": "Your done! Let the coffee finish dripping.",
+          "title": "Pour",
+          "text": "Very gently pour around the edges of the filter to clear any grounds from the sides.",
+          "showTimer": true,
+          "time": 25,
+          "autoProgress": true
+        },
+        {
+          "title": "Pour",
+          "text": "Pour in the center until scale reads 375g.",
+          "showTimer": true,
+          "time": 25,
+          "autoProgress": true
+        },
+        {
+          "title": "Your Done!",
+          "text": "Let the coffee finish dripping and Enjoy!",
+          "showTimer": false,
+          "nextButtonText": "Done"
+        }
+      ]
+    },
+    {
+      "name": "Chemex",
+      "ratio": "1:17.14285",
+      "totalCoffee": 35,
+      "totalWater": 600,
+      "measurement": "grams",
+      "groundSetting": "course",
+      "instructions": [
+        {
+          "title": "Prep - Step 1",
+          "text": "Start by boiling at least {totalWater} {measurement} of water and measure out {totalCoffee} {measurement} of coffee. Unfold one layer of the filter to form cone shape and place in the top of the Chemex, rinse with hot water to seat it and preheat the Chemex.",
+          "showTimer": false,
+          "nextButtonText": "Next"
+        },
+        {
+          "title": "Prep - Step 2",
+          "text": "Grind coffee and pour gently into filter. Give it a light shake to produce a even surface.",
+          "showTimer": false,
+          "nextButtonText": "Next"
+        },
+        {
+          "title": "Prep - Step 3",
+          "text": "Dump the rinse water, and place Chemex on scale and tare.",
+          "showTimer": false,
+          "nextButtonText": "Start Brewing"
+        },
+        {
+          "title": "The Bloom",
+          "text": "Pour about 60 grams of water over the surface of the grounds, just enough to wet them all.",
+          "showTimer": true,
+          "time": 40,
+          "autoProgress": true
+        },
+        {
+          "title": "Pour",
+          "text": "Pour in gentle circles in the middle 2/3 of the coffee until the scale reads 170g.",
+          "showTimer": true,
+          "time": 25,
+          "autoProgress": true
+        },
+        {
+          "title": "Pour",
+          "text": "Pour again in the middle 2/3 until scale reads 260g.",
+          "showTimer": true,
+          "time": 25,
+          "autoProgress": true
+        },
+        {
+          "title": "Pour",
+          "text": "Pour in the center until scale reads 350g.",
+          "showTimer": true,
+          "time": 25,
+          "autoProgress": true
+        },
+        {
+          "title": "Pour",
+          "text": "Pour in the center until scale reads 440g.",
+          "showTimer": true,
+          "time": 25,
+          "autoProgress": true
+        },
+        {
+          "title": "Pour",
+          "text": "Pour in the center until scale reads 530g.",
+          "showTimer": true,
+          "time": 25,
+          "autoProgress": true
+        },
+        {
+          "title": "Pour",
+          "text": "Pour in the center until scale reads 600g.",
+          "showTimer": true,
+          "time": 25,
+          "autoProgress": true
+        },
+        {
+          "title": "Pour",
+          "text": "Very gently pour around the edges of the filter to clear any grounds from the sides.",
+          "showTimer": true,
+          "time": 5,
+          "autoProgress": true
+        },
+        {
+          "title": "Your Done!",
+          "text": "Let the coffee finish dripping and Enjoy!",
+          "showTimer": false,
+          "nextButtonText": "Done"
+        }
+      ]
+    },
+    {
+      "name": "Aeropress",
+      "ratio": "1:11.5",
+      "totalCoffee": 20,
+      "totalWater": 230,
+      "measurement": "grams",
+      "groundSetting": "course",
+      "instructions": [
+        {
+          "title": "Prep - Step 1",
+          "text": "Start by boiling at least {totalWater} {measurement} of water and measure out {totalCoffee} {measurement} of coffee.",
+          "showTimer": false,
+          "nextButtonText": "Next Step"
+        },
+        {
+          "title": "Prep - Step 2",
+          "text": "Insert the plunger into the aeropress and set it upside down on your scale. Remove the filter basket, place a filter inside and rinse it. Set next to your scale.",
+          "showTimer": false,
+          "nextButtonText": "Next Step"
+        },
+        {
+          "title": "Prep - Step 3",
+          "text": "Ground {totalCoffee} {measurement} of coffee to {groundSetting} and add to the invereted Aeropress. Tare your scale and prepare to brew!",
+          "showTimer": false,
+          "nextButtonText": "Lets Brew!"
+        },
+        {
+          "title": "Bloom",
+          "text": "Pour 60 grams of water into the aeropress, making sure all grounds are wet.",
+          "showTimer": true,
+          "time": 10,
+          "autoProgress": true
+        },
+        {
+          "title": "Swirl",
+          "text": "Pick up the aeropress and swirl in a circular motion to stir grounds for 15 seconds",
+          "showTimer": true,
+          "time": 20,
+          "autoProgress": true
+        },
+        {
+          "title": "Pour",
+          "text": "Pour water until scale reads 230g.",
+          "showTimer": true,
+          "time": 10,
+          "autoProgress": true
+        },
+        {
+          "title": "Flip",
+          "text": "Place the filter on top of the aeropress and flip over onto your mug or carafe.",
+          "showTimer": true,
+          "time": 10,
+          "autoProgress": true
+        },
+        {
+          "title": "Slow Plunge",
+          "text": "Slowy press down on plunger so all liquid is pushed through after 45 seconds.",
+          "showTimer": true,
+          "time": 45,
+          "autoProgress": true
+        },
+        {
+          "title": "Done!",
+          "text": "Stop pressing, remove filter basket and push used grounds into compost and Enjoy!",
           "showTimer": false,
           "nextButtonText": "Done"
         }
       ]
     }
-  }
+  ]
 }

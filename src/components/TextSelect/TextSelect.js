@@ -24,7 +24,7 @@ export default class TextSelect extends React.Component {
   }
 
   render() {
-    let { options, className } = this.props
+    let { options, active, className } = this.props
     let classList = 'TextSelect'
 
     if (className) classList += ' ' + className
@@ -35,7 +35,7 @@ export default class TextSelect extends React.Component {
           ref={this.selectInput}
           className="TextSelect-input"
           onChange={this.handleChange}
-          value={this.state.selectedOption}
+          value={active}
         >
           {options.map((value, key) => (
             <option value={value} key={key}>
