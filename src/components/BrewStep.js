@@ -5,21 +5,25 @@ import Page from './Page'
 let style = {
   Countdown: {
     fontSize: '3em',
-    fontWeight: '100',
+    fontWeight: '100'
   },
   P: {
     maxWidth: '400px'
   }
 }
 
-const renderer = ({minutes, seconds, completed }) => {
-  let s = seconds.length > 9 ? seconds : ("0" + seconds).slice(-2)
+const CountdownRenderer = ({ minutes, seconds, completed }) => {
+  // force seconds to be 2 digits
+  let secondsFormated = seconds.length > 9 ? seconds : ('0' + seconds).slice(-2)
 
-  return <span style={style.Countdown}>{minutes}:{s}</span>
-};
+  return (
+    <span style={style.Countdown}>
+      {minutes}:{secondsFormated}
+    </span>
+  )
+}
 
 function replaceVariables(props, str) {
-  console.log(props)
   const regex = /{(.*?)}/gi
 
   function swap(x) {
@@ -42,7 +46,7 @@ function Timer(props) {
         key={props.stepKey}
         date={Date.now() + count}
         onComplete={props.onComplete}
-        renderer={renderer}
+        renderer={CountdownRenderer}
       />
     )
   } else {
@@ -58,33 +62,27 @@ function NextButton(props) {
   }
 }
 
-export default class BrewStep extends React.Component {
-  constructor(props) {
-    super(props)
-    this.onTimerComplete = this.onTimerComplete.bind(this)
+export default function BrewStep(props) {
+  let instructions = props.instructions[props.step]
+  let text = replaceVariables(props, instructions.text)
+  let time = instructions.showTimer ? instructions.time : 0
+  let showButton = !instructions.showTimer
+
+  function onTimerComplete() {
+    props.onNextButton()
   }
 
-  onTimerComplete() {
-    this.props.onNextButton()
-  }
-
-  render() {
-    let instructions = this.props.instructions[this.props.step]
-    let text = replaceVariables(this.props, instructions.text)
-    let time = instructions.showTimer ? instructions.time : 0
-    let showButton = !instructions.showTimer
-
-    return (
-      <Page>
-        <h2>{instructions.title}</h2>
-        <Timer
-          time={time}
-          onComplete={this.onTimerComplete}
-          stepKey={this.props.step}
-        />
-        <p style={style.P}>{text}</p>
-        <NextButton showButton={showButton} onClick={this.props.onNextButton} text={instructions.nextButtonText} />
-      </Page>
-    )
-  }
+  return (
+    <Page>
+      <h2>{instructions.title}</h2>
+      <Timer time={time} onComplete={onTimerComplete} stepKey={props.step} />
+      <p style={style.P}>{text}</p>
+      <button onClick={props.onBackButton}>Back</button>{' '}
+      <NextButton
+        showButton={showButton}
+        onClick={props.onNextButton}
+        text={instructions.nextButtonText}
+      />
+    </Page>
+  )
 }

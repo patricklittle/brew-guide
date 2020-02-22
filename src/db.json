@@ -252,7 +252,7 @@
         },
         {
           "title": "Prep - Step 3",
-          "text": "Ground {totalCoffee} {measurement} of coffee to {groundSetting} and add to the invereted Aeropress. Tare your scale and prepare to brew!",
+          "text": "Ground {totalCoffee} {measurement} of coffee to {groundSetting} and add to the inverted Aeropress. Tare your scale and prepare to brew!",
           "showTimer": false,
           "nextButtonText": "Lets Brew!"
         },
