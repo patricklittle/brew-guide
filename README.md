@@ -6,6 +6,9 @@ The app is build with React and hosted on Netlify
 
 ### Release Notes
 
+#### v0.0.3 (2/22/2020)
+- use Hooks and Functional Components
+
 #### v0.0.2 (2/20/2020)
 - add additional methods
 - style the countdown component
